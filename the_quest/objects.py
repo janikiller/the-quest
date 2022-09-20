@@ -52,11 +52,11 @@ class SpaceShip(Sprite):
     def __init__(self):
         super(). __init__()
         self.image_path_straight = os.path.join(
-            "resources", "player", "sprites", "player1.png")
+            "resources", "player", "sprites", "nave1.png")
         self.image_path_down = os.path.join(
-            "resources", "player", "sprites", "player2.png")
+            "resources", "player", "sprites", "nave1.png")
         self.image_path_up = os.path.join(
-            "resources", "player", "sprites", "player3.png")
+            "resources", "player", "sprites", "nave1.png")
 
         self.image = pg.transform.scale2x(
             pg.image.load(self.image_path_straight))
@@ -64,7 +64,7 @@ class SpaceShip(Sprite):
         self.centery = HEIGHT/2
         self.rect = self.image.get_rect(
             centerx=self.centerx, centery=self.centery)
-        self.speed = 5
+        self.speed = 10
         self.hull_damage = HullPoints()
         self.planet = Planet()
 
@@ -100,7 +100,7 @@ class SpaceShip(Sprite):
 class BigAsteroid(Sprite):
     def __init__(self):
         super().__init__()
-        image_path = os.path.join("resources", "asteroids", "asteroid.png")
+        image_path = os.path.join("resources", "asteroids", "asteroide2.png")
         self.image = pg.transform.scale2x(pg.image.load(image_path))
         self.x = WIDTH
         self.y = randint(0, HEIGHT)
@@ -114,12 +114,12 @@ class SmallAsteroid(Sprite):
     def __init__(self):
         super().__init__()
         image_path = os.path.join(
-            "resources", "asteroids", "asteroid-small.png")
+            "resources", "asteroids", "asteroide.png")
         self.image = pg.transform.scale2x(pg.image.load(image_path))
         self.x = WIDTH
         self.y = randint(0, HEIGHT)
         self.rect = self.image.get_rect(x=self.x, y=self.y)
-        self.speed = ASTEROID_SPEED * 1.5
+        self.speed = ASTEROID_SPEED * 3
 
     def update(self):
         self.rect.x = self.rect.x - self.speed
@@ -136,7 +136,7 @@ class BigAlienShip(Sprite):
         self.sprites = []
         for i in range(5):
             self.sprites.append(pg.transform.scale2x(pg.image.load(
-                os.path.join("resources", "enemy", "sprites", f"enemy{i}.png"))))
+                os.path.join("resources", "enemy", "sprites", f"asteroide3.png"))))
 
         self.next_image = 0
         self.image = self.sprites[self.next_image]
@@ -167,7 +167,7 @@ class SmallAlienShip(Sprite):
         self.sprites = []
         for i in range(5):
             self.sprites.append(pg.image.load(
-                os.path.join("resources", "enemy", "sprites", f"enemy{i}.png")))
+                os.path.join("resources", "enemy", "sprites", f"asteroide3.png")))
 
         self.next_image = 0
         self.image = self.sprites[self.next_image]

@@ -1,4 +1,9 @@
-WIDTH = 1632
+
+
+
+
+#dimenciones
+WIDTH = 1300
 HEIGHT = 960
 FPS = 60
 

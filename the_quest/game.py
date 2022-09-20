@@ -15,9 +15,9 @@ class TheQuest:
         pg.init()
         self.display = pg.display.set_mode(
             (WIDTH, HEIGHT))
-        pg.display.set_caption("The Quest BZ ")
+        pg.display.set_caption("mi juego CARLOS")
         icon = pg.image.load(os.path.join(
-            "resources", "player", "sprites", "player1.png"))
+            "resources", "player", "sprites", "nave1.png"))
         pg.display.set_icon(icon)
 
         self.scenes = [

@@ -21,7 +21,7 @@ class Front(Scene):
     def __init__(self, screen: pg.Surface):
         super().__init__(screen)
         image_background = pg.image.load(os.path.join(
-            "resources", "background", "bg-preview-big.png"))
+            "resources", "background", "imagen.png"))
         self.background = pg.transform.scale2x(image_background)
         self.font_file = os.path.join(
             "resources", "fonts", "PublicPixel-z84yD.ttf")
@@ -52,7 +52,7 @@ class Front(Scene):
 
     def draw_title(self):
         typography = pg.font.Font(self.font_file, 100)
-        message = "The Quest"
+        message = "MUNDO Z"
         text = pg.font.Font.render(typography, message, True, C_YELLOW)
         text_width = text.get_width()
         pos_x = (WIDTH-text_width)/2
@@ -61,7 +61,7 @@ class Front(Scene):
 
     def draw_text1(self):
         typography = pg.font.Font(self.font_file, 16)
-        message = "¡Usa flecha arriba y abajo para esquivar los obstáculos!"
+        message = "Usa flecha arriba y abajo"
         text = pg.font.Font.render(typography, message, True, C_YELLOW)
         text_width = text.get_width()
         pos_x = (WIDTH-text_width)/2
@@ -70,7 +70,7 @@ class Front(Scene):
 
     def draw_text2(self):
         typography = pg.font.Font(self.font_file, 16)
-        message = "Pulsa Espacio para empezar a jugar"
+        message = "espacio para continuar"
         text = pg.font.Font.render(typography, message, True, C_YELLOW)
         text_width = text.get_width()
         pos_x = (WIDTH-text_width)/2
@@ -83,7 +83,7 @@ class Story(Scene):
     def __init__(self, screen: pg.Surface):
         super().__init__(screen)
         image_background = pg.image.load(os.path.join(
-            "resources", "background", "bg-preview-big.png"))
+            "resources", "background", "imagen.png"))
         self.background = pg.transform.scale2x(image_background)
         self.font_file = os.path.join(
             "resources", "fonts", "PublicPixel-z84yD.ttf")
@@ -114,7 +114,7 @@ class Story(Scene):
 
     def draw_title(self):
         typography = pg.font.Font(self.font_file, 18)
-        message = "La Tierra es inhabitable y debemos abandonarla, para ello hemos construido una nave"
+        message = "Rick y Morty destruyeron nuestro universo, tu mision es encontrar otro"
         text = pg.font.Font.render(typography, message, True, C_YELLOW)
         text_width = text.get_width()
         pos_x = (WIDTH-text_width)/2
@@ -123,7 +123,7 @@ class Story(Scene):
 
     def draw_text1(self):
         typography = pg.font.Font(self.font_file, 18)
-        message = "y con ella viajaremos hacia otro mundo donde podremos prosperar"
+        message = "Eres la ultima esperanza de vida, execto por Rick y Morty"
         text = pg.font.Font.render(typography, message, True, C_YELLOW)
         text_width = text.get_width()
         pos_x = (WIDTH-text_width)/2
@@ -152,7 +152,7 @@ class Game1(Scene):
         self.small_asteroid = SmallAsteroid()
         self.score = Scoreboard1()
         image_background = pg.image.load(os.path.join(
-            "resources", "background", "bg-preview-big.png"))
+            "resources", "background", "imagen.png"))
         self.background = pg.transform.scale2x(image_background)
         self.explosion_group = pg.sprite.Group()
 
@@ -275,7 +275,7 @@ class Story2(Scene):
     def __init__(self, screen: pg.Surface):
         super().__init__(screen)
         image_background = pg.image.load(os.path.join(
-            "resources", "background", "layered", "bg-back.png"))
+            "resources", "background", "layered", "ip2.png"))
         image_background_stars = pg.image.load(os.path.join(
             "resources", "background", "layered", "bg-stars.png"))
 
@@ -315,7 +315,7 @@ class Story2(Scene):
 
     def draw_text0(self):
         typography = pg.font.Font(self.font_file, 18)
-        message = "Por fin hemos llegado a nuestro nuevo sol y nos aproximamos a Nova Terra!"
+        message = "llegaste"
         text = pg.font.Font.render(typography, message, True, C_YELLOW)
         text_width = text.get_width()
         pos_x = (WIDTH-text_width)/2
@@ -324,7 +324,7 @@ class Story2(Scene):
 
     def draw_text1(self):
         typography = pg.font.Font(self.font_file, 18)
-        message = "Tenemos un campo de asteroides enfrente y ... ESPERA!"
+        message = "Ten cuidado, tengo un mal presentimiento"
         text = pg.font.Font.render(typography, message, True, C_YELLOW)
         text_width = text.get_width()
         pos_x = (WIDTH-text_width)/2
@@ -333,7 +333,7 @@ class Story2(Scene):
 
     def draw_text2(self):
         typography = pg.font.Font(self.font_file, 18)
-        message = "Unas naves vienen hacia nosotros, ¡Son alienigenas!"
+        message = "Cuidado lluvia de METEORITOS"
         text = pg.font.Font.render(typography, message, True, C_YELLOW)
         text_width = text.get_width()
         pos_x = (WIDTH-text_width)/2
@@ -357,7 +357,7 @@ class Game2(Scene):
             (WIDTH, HEIGHT))
 
         image_background = pg.image.load(os.path.join(
-            "resources", "background", "layered", "bg-back.png"))
+            "resources", "background", "layered", "ip2.png"))
         image_background_stars = pg.image.load(os.path.join(
             "resources", "background", "layered", "bg-stars.png"))
         self.background = pg.transform.scale(image_background, (WIDTH, HEIGHT))
@@ -512,42 +512,42 @@ class Game2(Scene):
                 if self.score.win == False:
                     self.collide()
 
-            # para obstaculos si se pierde partida
+            
             else:
                 self.stop_obstacles_if_destroid()
-                # Resetea obstaculos y marca si esquivados
+              
             if self.score.win == False:
                 self.reset_and_score()
 
                 # dibuja el fondo
             self.draw_background()
-            # dibuja la nave
+           
             if not self.space_ship.hull_damage.destroyed:
                 self.display.blit(self.space_ship.image, self.space_ship.rect)
                 self.space_ship.update()
-            # dibuja los obstaculos
+           
             self.display.blit(self.big_asteroid.image, self.big_asteroid.rect)
             self.display.blit(self.small_asteroid.image,
                               self.small_asteroid.rect)
             self.display.blit(self.big_enemy.image, self.big_enemy.rect)
             self.display.blit(self.small_enemy.image, self.small_enemy.rect)
 
-            # dibuja explosion
+            
             self.explosion_group.draw(self.display)
             self.explosion_group.update()
 
-            # dibuja los puntos para ganar (obstaculos esquivados)
+            
 
             self.score.draw(self.display)
-            # dibuja los puntos para perder (golpes a la nave)
+            
             self.space_ship.hull_damage.draw(self.display)
 
-            # dibuja planeta
+            
             if self.score.win == True:
                 self.display.blit(self.planet.image, self.planet.rect)
                 self.planet.update()
 
-            # aterrizaje de la nave
+          
             if self.planet.planet_in_position == True:
                 self.ship_landing()
 
@@ -562,7 +562,7 @@ class Landing(Scene):
             (WIDTH, HEIGHT))
 
         image_background = pg.image.load(os.path.join(
-            "resources", "background", "layered", "bg-back.png"))
+            "resources", "background", "layered", "ip2.png"))
         image_background_stars = pg.image.load(os.path.join(
             "resources", "background", "layered", "bg-stars.png"))
         self.background = pg.transform.scale(image_background, (WIDTH, HEIGHT))
@@ -595,25 +595,14 @@ class Landing(Scene):
                     print("Exiting")
                     pg.quit()
 
-            # mueve obstaculos y comprueba si chocan con la nave
-
-            # para obstaculos si se pierde partida
-
+           
             # dibuja el fondo
             self.draw_background()
-            # dibuja la nave
+           
 
             self.display.blit(self.space_ship.image, self.space_ship.rect)
             self.space_ship.update()
-            # dibuja los obstaculos
-
-            # dibuja explosion
-
-            # dibuja los puntos para ganar (obstaculos esquivados)
-
-            # dibuja los puntos para perder (golpes a la nave)
-            # dibuja planeta
-
+            
             self.display.blit(self.planet.image, self.planet.rect)
             self.planet.update()
 
@@ -625,10 +614,7 @@ class HallOfFame(Scene):
     def main_loop(self):
         while True:
             for event in pg.event.get():
-                # if event.type == pg.KEYDOWN:
-                #    if event.key == pg.K_ESCAPE:
-                #        print("Exiting")
-                #        return
+               
                 if event.type == pg.QUIT:
                     print("Exiting")
                     pg.quit()
